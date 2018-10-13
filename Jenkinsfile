@@ -1,4 +1,3 @@
-Jenkinsfile (Declarative Pipeline)
 pipeline {
     agent none
     stages {
@@ -6,7 +5,7 @@ pipeline {
         stage('Build') {
             agent {
                 docker {
-                    image 'python:3.7.0'
+                    image 'python:latest'
                 }
             }
             steps {
