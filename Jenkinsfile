@@ -2,14 +2,13 @@ pipeline {
     agent none
     stages {
 
-        stage('Build') {
-            agent {
-                docker {
-                    image 'python:latest'
-                }
-            }
+        stage('Deploy') {
+            agent any
             steps {
-                sh 'python -v'
+                dir('web/') {
+                    sh 'docker build -t app .'
+                    sh 'docker run -d - p 5000:5000 app'
+                }
             }
         }
 
@@ -18,7 +17,9 @@ pipeline {
                 dockerfile true
             }
             steps {
-                sh 'pytest --junit-xml=reports/reports.xml --html=html/index.html'
+                dir('tests/') {
+                    sh 'pytest --junit-xml=reports/reports.xml --html=html/index.html'
+                }
             }
             post {
                 always {
