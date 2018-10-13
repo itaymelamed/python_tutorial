@@ -1,6 +1,6 @@
-def test_validate():
-    assert 2 == 2
+import requests
 
 
-def test_fail():
-    assert 2 == 2, "Failed test"
+def test_ping():
+    r = requests.get('http://localhost:5000/ping')
+    assert r.text == 'pong'
