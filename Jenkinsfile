@@ -21,6 +21,12 @@ pipeline {
                     sh 'pytest --junit-xml=reports/reports.xml --html=html/index.html'
                 }
             }
+            steps {
+                dir('tests/') {
+                    sh 'docker rm -f app'
+                }
+            }
+
             post {
                 always {
                     junit 'reports/reports.xml'
