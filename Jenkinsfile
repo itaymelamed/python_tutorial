@@ -14,7 +14,9 @@ pipeline {
 
         stage('Test') {
             agent {
-                dockerfile true
+                dockerfile {
+                    args '--link app'
+                }
             }
             steps {
                 dir('tests/') {
