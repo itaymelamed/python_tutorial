@@ -21,7 +21,7 @@ pipeline {
             }
             steps {
                 sh 'pip install pytest'
-                sh 'pytest --junit-xml=reports/reports.xml'
+                sh 'pytest --junit-xml=reports/reports.xml --html=reports/index.html'
             }
             post {
                 always {
