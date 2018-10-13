@@ -2,7 +2,7 @@ pipeline {
     agent none
     stages {
 
-        stage('Deploy') {
+        stage("Deploy ${env.BRANCH_NAME}") {
             agent any
             steps {
                 dir('web/') {
