@@ -15,13 +15,9 @@ pipeline {
 
         stage('Test') {
             agent {
-                docker  {
-                    image 'python:latest'
-                }
+                dockerfile true
             }
             steps {
-                sh 'pip install pytest'
-                sh 'pip install pytest-html'
                 sh 'pytest --junit-xml=reports/reports.xml --html=reports/index.html'
             }
             post {
@@ -31,7 +27,7 @@ pipeline {
                         allowMissing: false,
                         alwaysLinkToLastBuild: false,
                         keepAll: true,
-                        reportDir: 'reports/',
+                        reportDir: 'reports',
                         reportFiles: 'index.html',
                         reportName: 'RCov Report'
                       ]
