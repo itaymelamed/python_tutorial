@@ -6,7 +6,8 @@ pipeline {
             agent any
             steps {
                 dir('web/') {
-                    sh '/usr/local/bin/docker-compose up -d'
+                    sh 'docker build -t app .'
+                    sh 'docker run -d - p 5000:5000 app'
                 }
             }
         }
