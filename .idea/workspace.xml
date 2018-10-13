@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7421a3a1-a4e0-4ce0-8b1c-b603d5075a95" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/web/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Jenkinsfile" beforeDir="false" afterPath="$PROJECT_DIR$/Jenkinsfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_hello.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_hello.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +42,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Dockerfile" value="29" />
-          <entry key="Jenkinsfile" value="525" />
+          <entry key="Jenkinsfile" value="561" />
           <entry key="gitignore" value="6" />
           <entry key="py" value="270" />
           <entry key="txt" value="5" />
@@ -56,7 +51,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Dockerfile" value="29" />
-          <entry key="PLAIN_TEXT" value="536" />
+          <entry key="PLAIN_TEXT" value="572" />
           <entry key="Python" value="270" />
         </counts>
       </usages-collector>
@@ -80,8 +75,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Jenkinsfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="18" column="23" lean-forward="true" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+            <state relative-caret-position="201">
+              <caret line="21" column="13" lean-forward="true" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -342,8 +337,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Jenkinsfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="18" column="23" lean-forward="true" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+        <state relative-caret-position="201">
+          <caret line="21" column="13" lean-forward="true" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
         </state>
       </provider>
     </entry>

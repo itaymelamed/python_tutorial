@@ -4,25 +4,25 @@ pipeline {
 
         stage('Deploy') {
             agent any
-            dir('web/') {
-                steps {
+            steps {
+                dir('web/') {
                     sh 'docker-compose up -d'
                 }
             }
         }
 
         stage('Test') {
-            dir('tests/') {
-                agent {
-                    dockerfile true
-                }
-                steps {
+            agent {
+                dockerfile true
+            }
+            steps {
+                dir('tests/') {
                     sh 'pytest --junit-xml=reports/reports.xml --html=html/index.html'
                 }
-                post {
-                    always {
-                        junit 'reports/reports.xml'
-                    }
+            }
+            post {
+                always {
+                    junit 'reports/reports.xml'
                 }
             }
         }
