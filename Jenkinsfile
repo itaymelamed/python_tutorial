@@ -9,6 +9,9 @@ pipeline {
                 }
             }
             steps {
+            script {
+                 pullRequest.addLabel('Building environment')
+            }
                 sh 'python -v'
             }
         }
