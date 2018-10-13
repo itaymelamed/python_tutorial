@@ -22,7 +22,7 @@ pipeline {
             steps {
                 sh 'pip install pytest'
                 sh 'pip install pytest-html'
-                sh 'pytest --junit-xml=reports/reports.xml --html=reports/html/index.html'
+                sh 'pytest --junit-xml=reports/reports.xml --html=reports/index.html'
             }
             post {
                 always {
@@ -31,7 +31,7 @@ pipeline {
                         allowMissing: false,
                         alwaysLinkToLastBuild: false,
                         keepAll: true,
-                        reportDir: 'reports/html',
+                        reportDir: 'reports/',
                         reportFiles: 'index.html',
                         reportName: 'RCov Report'
                       ]
