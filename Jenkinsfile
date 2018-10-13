@@ -33,6 +33,9 @@ pipeline {
 
         stage('Clean') {
             agent any
+            step {
+                echo 'removing app container'
+            }
             post {
                 always {
                     sh 'docker rm -f app'
