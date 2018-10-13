@@ -15,13 +15,10 @@ pipeline {
 
         stage('Test') {
             agent {
-                docker  {
-                    image 'python:latest'
-                }
+                dockerfile true
             }
             steps {
-                sh 'pip install pytest'
-                sh 'pytest --junit-xml=reports/reports.xml --html=reports/index.html'
+                sh 'pytest --junit-xml=reports/reports.xml --html=html/index.html'
             }
             post {
                 always {
