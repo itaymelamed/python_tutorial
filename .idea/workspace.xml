@@ -40,7 +40,7 @@
           <entry key="Dockerfile" value="23" />
           <entry key="Jenkinsfile" value="328" />
           <entry key="gitignore" value="6" />
-          <entry key="py" value="165" />
+          <entry key="py" value="170" />
           <entry key="txt" value="5" />
         </counts>
       </usages-collector>
@@ -48,7 +48,7 @@
         <counts>
           <entry key="Dockerfile" value="23" />
           <entry key="PLAIN_TEXT" value="339" />
-          <entry key="Python" value="165" />
+          <entry key="Python" value="170" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -60,10 +60,10 @@
         <entry file="file://$PROJECT_DIR$/test_hello.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
-              <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+              <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
               <folding>
-                <marker date="1539442766931" expanded="true" signature="20:25" ph="..." />
-                <marker date="1539442766931" expanded="true" signature="57:62" ph="..." />
+                <marker date="1539442926892" expanded="true" signature="20:25" ph="..." />
+                <marker date="1539442926892" expanded="true" signature="57:62" ph="..." />
               </folding>
             </state>
           </provider>
@@ -245,10 +245,10 @@
     <entry file="file://$PROJECT_DIR$/test_hello.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
-          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+          <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
           <folding>
-            <marker date="1539442766931" expanded="true" signature="20:25" ph="..." />
-            <marker date="1539442766931" expanded="true" signature="57:62" ph="..." />
+            <marker date="1539442926892" expanded="true" signature="20:25" ph="..." />
+            <marker date="1539442926892" expanded="true" signature="57:62" ph="..." />
           </folding>
         </state>
       </provider>

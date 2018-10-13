@@ -3,4 +3,4 @@ def test_validate():
 
 
 def test_fail():
-    assert 2 == 4, "Failed"
+    assert 2 == 4, "Failed test"
