@@ -24,9 +24,13 @@ pipeline {
                 }
             }
 
+            agent any
+            steps {
+                sh 'docker rm -f app'
+            }
+
             post {
                 always {
-                    sh 'docker rm -f app'
                     junit 'tests/reports/reports.xml'
                 }
             }
