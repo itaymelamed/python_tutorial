@@ -18,7 +18,7 @@ pipeline {
                 dockerfile true
             }
             steps {
-                sh 'pytest --junit-xml=reports/reports.xml --html=reports/index.html'
+                sh 'pytest --junit-xml=reports/reports.xml --html=html/index.html'
             }
             post {
                 always {
@@ -27,7 +27,7 @@ pipeline {
                         allowMissing: false,
                         alwaysLinkToLastBuild: false,
                         keepAll: true,
-                        reportDir: 'reports',
+                        reportDir: 'html/',
                         reportFiles: 'index.html',
                         reportName: 'RCov Report'
                       ]
