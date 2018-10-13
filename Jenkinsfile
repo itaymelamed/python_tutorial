@@ -6,6 +6,7 @@ pipeline {
             agent any
             steps {
                 dir('web/') {
+                    sh 'docker rm -f app'
                     sh 'docker build -t app .'
                     sh 'docker run -d -p 5000:5000 --name app app'
                 }
@@ -22,11 +23,6 @@ pipeline {
                 dir('tests/') {
                     sh 'pytest --junit-xml=reports/reports.xml --html=html/index.html'
                 }
-            }
-
-            agent any
-            steps {
-                sh 'docker rm -f app'
             }
 
             post {
