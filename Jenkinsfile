@@ -1,7 +1,12 @@
 pipeline {
     agent none
     stages {
-
+        stage ("Clean up") {
+            agent any
+            steps {
+                sh 'docker ps -q -f name=app | xargs docker rm -f'
+            }
+        }
         stage("Deploy") {
             agent any
             steps {
@@ -28,18 +33,6 @@ pipeline {
             post {
                 always {
                     junit 'tests/reports/reports.xml'
-                }
-            }
-        }
-
-        stage('Clean') {
-            agent any
-            steps {
-                echo 'removing app container'
-            }
-            post {
-                always {
-                    sh 'docker rm -f app'
                 }
             }
         }
