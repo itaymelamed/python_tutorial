@@ -9,9 +9,6 @@ pipeline {
                 }
             }
             steps {
-            script {
-                 pullRequest.addLabel('Building environment')
-            }
                 sh 'python -v'
             }
         }
@@ -25,14 +22,6 @@ pipeline {
             }
             post {
                 always {
-                    publishHTML target: [
-                        allowMissing: false,
-                        alwaysLinkToLastBuild: false,
-                        keepAll: true,
-                        reportDir: 'html/',
-                        reportFiles: 'index.html',
-                        reportName: 'RCov Report'
-                      ]
                     junit 'reports/reports.xml'
                 }
             }
