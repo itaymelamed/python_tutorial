@@ -33,7 +33,7 @@ pipeline {
 
         stage('Clean') {
             agent any
-            step {
+            steps {
                 echo 'removing app container'
             }
             post {
