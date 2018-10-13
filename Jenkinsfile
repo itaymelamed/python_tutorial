@@ -19,11 +19,8 @@ pipeline {
             steps {
                 dir('tests/') {
                     sh 'pytest --junit-xml=reports/reports.xml --html=html/index.html'
-                }
-            }
-            steps {
-                dir('tests/') {
                     sh 'docker rm -f app'
+
                 }
             }
 
