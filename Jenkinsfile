@@ -22,7 +22,6 @@ pipeline {
             }
             post {
                 always {
-                    junit 'reports/reports.xml'
                     publishHTML target: [
                         allowMissing: false,
                         alwaysLinkToLastBuild: false,
@@ -31,6 +30,7 @@ pipeline {
                         reportFiles: 'index.html',
                         reportName: 'RCov Report'
                       ]
+                    junit 'reports/reports.xml'
                 }
             }
         }
