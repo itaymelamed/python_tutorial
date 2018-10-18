@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 
 @app.route('/ping')
-def hello_whale():
+def ping_pong():
     return 'pong'
 
 
