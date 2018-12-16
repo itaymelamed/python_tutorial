@@ -8,6 +8,11 @@ steps:
     - cd web
     - pwd
 
+  - name: hello
+    image: ubuntu
+    commans:
+    - pwd
+
   - name: test
     image: python
     commands:
