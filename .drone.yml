@@ -2,8 +2,6 @@ kind: pipeline
 name: default
 
 steps:
-  - name: build
-
   - name: test
     image: python
     commands:
