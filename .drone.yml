@@ -8,7 +8,6 @@ steps:
   - cd web
   - pwd
   - pip install -r requirements.txt
-  - python app.py
 
 - name: test
   image: python
