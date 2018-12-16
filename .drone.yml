@@ -8,4 +8,4 @@ steps:
   - pip install pytest
   - pip install pytest-sugar
   - cd tests
-  - pytest
+  - pytest -vvv
