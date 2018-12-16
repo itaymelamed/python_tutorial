@@ -18,7 +18,10 @@ steps:
   - pytest -vvv
 
 - name: go
-  image: go
+  image: golang:alpine
+  commands:
+  - go build -o main .
+  - CMD ["./main"]
 
 - name: slack
   image: plugins/slack
