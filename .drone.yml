@@ -14,5 +14,6 @@ services:
   image: python
   commans:
   - cd web
+  - pwd
   - pip install -r requirements.txt
   - python app.py
