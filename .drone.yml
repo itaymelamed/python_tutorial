@@ -26,4 +26,4 @@ steps:
   port: 465
   from: drone@your-domain.com
   when:
-    status: [ success, failure ]
+    status: [ success ]
