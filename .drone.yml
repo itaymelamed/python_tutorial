@@ -2,7 +2,7 @@ kind: pipeline
 name: default
 
 steps:
-- name: 
+- name: api
   image: python
   commands:
   - pip install pytest
