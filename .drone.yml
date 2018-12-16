@@ -2,14 +2,6 @@ kind: pipeline
 name: default
 
 steps:
-- name: test
-  image: python
-  commands:
-  - cd tests
-  - pip install -r requirements.txt
-  - pytest -vvv
-
-services:
 - name: app
   image: python
   commans:
@@ -17,3 +9,10 @@ services:
   - pwd
   - pip install -r requirements.txt
   - python app.py
+
+- name: test
+  image: python
+  commands:
+  - cd tests
+  - pip install -r requirements.txt
+  - pytest -vvv
