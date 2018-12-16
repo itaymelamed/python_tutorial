@@ -1,0 +1,10 @@
+kind: pipeline
+name: default
+
+steps:
+- name: 
+  image: python
+  commands:
+  - pip install pytest
+  - cd tests
+  - pytest
