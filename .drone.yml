@@ -2,20 +2,7 @@ kind: pipeline
 name: default
 
 steps:
-  - name: test3
-    image: python
-    commands:
-    - cd tests
-    - pwd
-    - pip install -r requirements.txt
-    - pytest -vvv
-
-  - name: test4
-    image: python
-    commands:
-    - cd tests
-    - pip install -r requirements.txt
-    - pytest -vvv
+  - name: build
 
   - name: test
     image: python
@@ -24,3 +11,8 @@ steps:
     - pwd
     - pip install -r requirements.txt
     - pytest -vvv
+
+  - name: test2
+    image: ubuntu
+    commands:
+    - ls
