@@ -22,7 +22,7 @@ steps:
   commands:
   - cd tests
   - pip install -r requirements.txt
-  - pytest -v
+  - pytest -vvv --html=report.html
 
 - name: slack
   image: plugins/slack
