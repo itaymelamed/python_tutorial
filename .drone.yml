@@ -2,17 +2,16 @@ kind: pipeline
 name: default
 
 steps:
-- name: app
-  image: python
-  commans:
-  - cd web
-  - pwd
-  - pip install -r requirements.txt
+  - name: app
+    image: python
+    commans:
+    - cd web
+    - pwd
 
-- name: test
-  image: python
-  commands:
-  - cd tests
-  - pwd
-  - pip install -r requirements.txt
-  - pytest -vvv
+  - name: test
+    image: python
+    commands:
+    - cd tests
+    - pwd
+    - pip install -r requirements.txt
+    - pytest -vvv
