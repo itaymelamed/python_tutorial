@@ -2,10 +2,32 @@ kind: pipeline
 name: default
 
 steps:
-- name: api
+- name: web
+  image: python
+  detach: true
+  commands:
+  - cd web
+  - pip install -r requirements.txt
+  - python app.py
+
+- name: test
   image: python
   commands:
-  - pip install pytest
-  - pip install pytest-sugar
   - cd tests
+  - pip install -r requirements.txt
   - pytest -vvv
+
+- name: slack
+  image: plugins/slack
+  settings:
+    webhook:
+      from_secret: slack_webhook
+    channel: ci
+    template: >
+      {{#success build.status}}
+        build {{build.number}} succeeded. Good job. {{build.link}}
+      {{else}}
+        build {{build.number}} failed. Fix me please.
+      {{/success}}
+  when:
+    status: [ success, failure ]
