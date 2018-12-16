@@ -2,17 +2,13 @@ kind: pipeline
 name: default
 
 steps:
-- name: build
-  image: docker
-  commands:
-  - cd web
-  - docker build -t app:1.0 .
-
 - name: web
-  image: docker
+  image: python
   detach: true
   commands:
-  - docker run app:1.0
+  - cd web
+  - pip install -r requirements.txt
+  - python app.py
 
 - name: test
   image: python
@@ -34,4 +30,4 @@ steps:
         build {{build.number}} failed. Fix me please.
       {{/success}}
   when:
-    status: [ success ]
+    status: [ success, failure ]
