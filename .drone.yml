@@ -2,10 +2,9 @@ kind: pipeline
 name: default
 
 steps:
-  - name: app
-    image: python
+  - name: itay
+    image: ubuntu
     commans:
-    - cd web
     - pwd
 
   - name: hello
