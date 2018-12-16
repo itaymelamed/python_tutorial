@@ -4,6 +4,7 @@ name: default
 steps:
 - name: web
   image: python
+  detach: true
   commands:
   - cd web
   - pip install -r requirements.txt
