@@ -2,10 +2,12 @@ kind: pipeline
 name: default
 
 steps:
+
+- name: build
+  image: python
+
 - name: api
   image: python
   commands:
-  - pip install pytest
-  - pip install pytest-sugar
   - cd tests
   - pytest -vvv
