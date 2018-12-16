@@ -8,4 +8,4 @@ def test_ping():
 
 def test_ping_go():
     r = requests.get('http://go:80')
-    assert r.text == 'pong'
+    assert 'pong' in r.text
