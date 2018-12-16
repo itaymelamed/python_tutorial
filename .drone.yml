@@ -5,6 +5,7 @@ steps:
 - name: test
   image: python
   commands:
+  - pip install pytest
   - cd tests
   - pytest -vvv
 
