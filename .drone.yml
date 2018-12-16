@@ -25,7 +25,7 @@ steps:
     channel: ci
     template: >
       {{#success build.status}}
-        build {{build.number}} succeeded. Good job. {{build.link}}
+        build {{build.number}} succeeded. Good job. {{build.link}}.replace("https", "http")
       {{else}}
         build {{build.number}} failed. Fix me please.
       {{/success}}
