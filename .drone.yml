@@ -5,12 +5,12 @@ steps:
   - name: itay
     image: ubuntu
     commans:
-    - pwd
+    - echo "OK"
 
   - name: hello
     image: ubuntu
     commans:
-    - pwd
+    - echo "OK"
 
   - name: test
     image: python
