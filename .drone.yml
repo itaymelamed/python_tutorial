@@ -14,7 +14,7 @@ steps:
   image: golang:alpine
   commands:
   - go build -o main .
-  - CMD ["./main"]
+  - ./main
   detach: true
 
 - name: test
