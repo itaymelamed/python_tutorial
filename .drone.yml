@@ -2,15 +2,21 @@ kind: pipeline
 name: default
 
 steps:
-  - name: itay
-    image: ubuntu
-    commans:
-    - echo "OK"
+  - name: test4
+    image: python
+    commands:
+    - cd tests
+    - pwd
+    - pip install -r requirements.txt
+    - pytest -vvv
 
-  - name: hello
-    image: ubuntu
-    commans:
-    - echo "OK"
+  - name: test4
+    image: python
+    commands:
+    - cd tests
+    - pwd
+    - pip install -r requirements.txt
+    - pytest -vvv
 
   - name: test
     image: python
