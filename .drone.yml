@@ -8,7 +8,6 @@ steps:
     - cd tests
     - pwd
     - pip install -r requirements.txt
-    - pytest -vvv
 
   - name: test2
     image: ubuntu
