@@ -7,5 +7,5 @@ def test_ping():
 
 
 def test_ping_go():
-    r = requests.get('http://go:80')
+    r = requests.get('http://g4o:80')
     assert 'pong' in r.text
