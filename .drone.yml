@@ -21,7 +21,8 @@ steps:
   image: drillster/drone-email
   host: smtp.gmail.com
   username: itay.m@minutemedia.com
-  password: from_secret: GMAIL_PASSWORD
+  environment:
+    PASSWORD: from_secret: GMAIL_PASSWORD
   from: drone@your-domain.com
   when:
     status: [ success, failure ]
