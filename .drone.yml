@@ -9,7 +9,8 @@ steps:
     - pwd
     - pip install -r requirements.txt
 
-  - name: test2
-    image: ubuntu
+  - name: web
+    image: python
     commands:
-    - ls
+    - cd web
+    - python app.py
