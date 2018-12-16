@@ -16,3 +16,12 @@ steps:
   - cd tests
   - pip install -r requirements.txt
   - pytest -vvv
+
+- name: notify
+  image: drillster/drone-email
+  host: smtp.gmail.com
+  username: itay.m@minutemedia.com
+  password: ${GMAIL_PASSWORD}
+  from: drone@your-domain.com
+  when:
+    status: [ success, failure ]
