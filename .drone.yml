@@ -23,5 +23,5 @@ steps:
     webhook:
       from_secret: slack_webhook
     channel: ci
-    when:
-  status: [ success, failure ]
+  when:
+    status: [ success, failure ]
