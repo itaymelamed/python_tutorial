@@ -2,15 +2,15 @@ kind: pipeline
 name: default
 
 steps:
-  - name: test
-    image: python
-    commands:
-    - cd tests
-    - pip install -r requirements.txt
+- name: web
+  image: python
+  commands:
+  - cd web
+  - pip install -r requirements.txt
+  - python app.py
 
-  - name: web
-    image: python
-    commands:
-    - cd web
-    - pip install -r requirements.txt
-    - python app.py
+- name: test
+  image: python
+  commands:
+  - cd tests
+  - pip install -r requirements.txt
