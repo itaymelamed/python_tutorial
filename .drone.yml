@@ -2,10 +2,16 @@ kind: pipeline
 name: default
 
 steps:
-- name: api
+- name: test
   image: python
   commands:
-  - pip install pytest
-  - pip install pytest-sugar
   - cd tests
   - pytest -vvv
+
+services:
+- name: app
+  image: python
+  commans:
+  - cd web
+  - pip install requirements.txt
+  - python app.py
