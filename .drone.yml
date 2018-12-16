@@ -17,13 +17,11 @@ steps:
   - pip install -r requirements.txt
   - pytest -vvv
 
-- name: notify
-  image: drillster/drone-email
-  host: smtp.gmail.com
-  username: itay.m@minutemedia.com
-  password:
-    from_secret: GMAIL_PASSWORD
-  port: 25
-  from: drone@your-domain.com
-  when:
-    status: [ success ]
+- name: slack
+  image: plugins/slack
+  settings:
+    webhook:
+      from_secret: slack_webhook
+    channel: ci
+    when:
+  status: [ success, failure ]
