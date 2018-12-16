@@ -23,7 +23,7 @@ steps:
   username: itay.m@minutemedia.com
   password:
     from_secret: GMAIL_PASSWORD
-  port: 465
+  port: 587
   from: drone@your-domain.com
   when:
     status: [ success ]
