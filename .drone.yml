@@ -10,18 +10,19 @@ steps:
   - pip install -r requirements.txt
   - python app.py
 
-- name: test
-  image: python
-  commands:
-  - cd tests
-  - pip install -r requirements.txt
-  - pytest -vvv
-
 - name: go
   image: golang:alpine
   commands:
   - go build -o main .
   - CMD ["./main"]
+  detach: true
+
+- name: test
+  image: python
+  commands:
+  - cd tests
+  - pip install -r requirements.txt
+  - pytest
 
 - name: slack
   image: plugins/slack
