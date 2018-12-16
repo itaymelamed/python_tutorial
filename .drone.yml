@@ -5,8 +5,8 @@ steps:
 - name: test
   image: python
   commands:
-  - pip install pytest
   - cd tests
+  - pip install requirements.txt
   - pytest -vvv
 
 services:
