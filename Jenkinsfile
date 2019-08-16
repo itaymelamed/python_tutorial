@@ -68,7 +68,7 @@ spec:
             container('python') {
                 dir('tests') {
                     sh 'pip install -r requirements.txt'
-                    sh 'pytest --xml=reports/report.xml'
+                    sh 'pytest --junitxml=reports/report.xml'
                 }
             }
         }
