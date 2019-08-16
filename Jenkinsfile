@@ -24,6 +24,7 @@ spec:
   stages {
     stage('Run docker') {
         steps {
+            sh 'ls' 
             container('docker') {
                 sh 'docker ls'
                 sh 'docker network create test'
