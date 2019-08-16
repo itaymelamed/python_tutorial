@@ -1,8 +1,11 @@
 pipeline {
-    agent {
-        kubernetes {
-            defaultContainer 'jnlp'
-            yaml """
+  agent none
+  stages {
+    stage('Run docker') {
+        agent {
+            kubernetes {
+                defaultContainer 'jnlp'
+                yaml """
 apiVersion: v1
 kind: Pod
 spec:
@@ -13,9 +16,11 @@ spec:
     - name: "workspace-volume"
       mountPath: "/home/jenkins/agent"
       readOnly: false
-  - name: docker
-    image: docker
-    command: ['cat']
+    - name: "reports"
+      mountPath: "/reports"
+      readOnly: false
+  - name: python
+    image: python:alpine
     tty: true
     volumeMounts:
     - name: dockersock
@@ -23,24 +28,24 @@ spec:
     - name: "workspace-volume"
       mountPath: "/home/jenkins/agent"
       readOnly: false
+    - name: "reports"
+      mountPath: "/reports"
+      readOnly: false
   volumes:
   - name: dockersock
     hostPath:
       path: /var/run/docker.sock
   - name: "workspace-volume"
     emptyDir: {}
+  - name: "reports"
+    emptyDir: {}
 """
-    }
-  }
-  stages {
-    stage('Run docker') {
-        steps {
-            container('docker') {
-                sh 'ls'
-                sh 'mkdir /home/jenkins/agent/test'
             }
-            sh 'ls'
-            sh 'ls /home/jenkins/agent/test'
+        }
+        steps {
+            container('python') {
+                sh 'python --version'
+            }
         }
     }
   }
