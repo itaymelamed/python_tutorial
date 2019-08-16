@@ -25,6 +25,7 @@ spec:
     stage('Run docker') {
         steps {
             container('docker') {
+                sh 'docker ls'
                 sh 'docker network create test'
                 sh 'docker run -d --name nginx1 --network test nginx'
                 sh 'docker run -d --name nginx2 --network test nginx'
