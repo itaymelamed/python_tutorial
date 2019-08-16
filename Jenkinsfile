@@ -1,47 +1,40 @@
 pipeline {
-    agent none
-    stages {
-
-        stage("Deploy") {
-            agent any
-            steps {
-                echo "${env.BRANCH_NAME}"
-                dir('web/') {
-                    sh 'docker build -t app .'
-                    sh 'docker run -d -p 5000:5000 --name app app'
-                }
-            }
+    agent {
+        kubernetes {
+        defaultContainer 'jnlp'
+        yaml """
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+  - name: docker
+    image: docker
+    command: ['cat']
+    tty: true
+    volumeMounts:
+    - name: dockersock
+      mountPath: /var/run/docker.sock
+  volumes:
+  - name: dockersock
+    hostPath:
+      path: /var/run/docker.sock
+"""
         }
-
-        stage('Test') {
-            agent {
-                dockerfile {
-                    args '--link app'
-                }
-            }
-            steps {
-                dir('tests/') {
-                    sh 'pytest --junit-xml=reports/reports.xml --html=html/index.html'
-                }
-            }
-
-            post {
-                always {
-                    junit 'tests/reports/reports.xml'
-                }
-            }
-        }
-
-        stage('Clean') {
-            agent any
-            steps {
-                echo 'removing app container'
-            }
-            post {
-                always {
-                    sh 'docker rm -f app'
-                }
+    }
+  stages {
+    stage('Run docker') {
+        steps {
+            container('docker') {
+                sh 'docker network create test'
+                sh 'docker run -d --name nginx1 --network test nginx'
+                sh 'docker run -d --name nginx2 --network test nginx'
+                sh 'docker exec -i nginx1 apt update'
+                sh 'docker exec -i nginx1 apt install curl -y'
+                sh 'docker exec -i nginx1 curl nginx2'
+                sh 'docker rm -f nginx1 nginx2'
+                sh 'docker network rm test'
             }
         }
     }
+  }
 }
