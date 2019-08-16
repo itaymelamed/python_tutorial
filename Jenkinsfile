@@ -79,10 +79,10 @@ spec:
             }
         }
     }
-    post {
-        always {
-            junit 'reports/report.xml'
-        }
+  }
+  post {
+    always {
+        junit 'reports/report.xml'
     }
   }
 }
